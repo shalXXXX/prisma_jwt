@@ -1,4 +1,5 @@
 import { Prisma, PrismaClient } from "@prisma/client";
+import { hashSync } from "bcryptjs";
 
 const prisma = new PrismaClient();
 
@@ -9,17 +10,17 @@ async function main() {
     {
       email: "test01@test.com",
       name: "testuser01",
-      password: "test01",
+      password: hashSync("test01", 8),
     },
     {
       email: "test02@test.com",
       name: "testuser02",
-      password: "test02",
+      password: hashSync("test02", 8),
     },
     {
       email: "test03@test.com",
       name: "testuser03",
-      password: "test03",
+      password: hashSync("test03", 8),
     },
   ];
 
