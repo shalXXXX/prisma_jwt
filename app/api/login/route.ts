@@ -20,16 +20,7 @@ export async function POST(req: NextRequest) {
       if(!isMatch) {
         return new NextResponse("invalid password", { status: 401 })
       }
-      const token = sign(
-        { id: user.id, email: user.email },
-        process.env.JWT_SECRET!,
-        { expiresIn: "1h"}
-      )
-
-      return NextResponse.json(
-        `email: ${user.email}, name: ${user.name}`,
-        { status: 200 }
-      )
+      return NextResponse.json({id: user.id, name: user.name, email: user.email})
     }
     return await comparePassword();
   }
