@@ -25,7 +25,7 @@ function SignIn() {
       if (res?.error) {
         console.log(res.error)
       }
-      router.push("/home")
+      router.push("/")
     }).catch(err =>{
       console.log(err)
     })
