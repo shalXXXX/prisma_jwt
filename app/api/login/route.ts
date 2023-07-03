@@ -25,8 +25,8 @@ export async function POST(req: NextRequest) {
         process.env.JWT_SECRET!,
         { expiresIn: "1h"}
       )
-      
-      return new NextResponse(
+
+      return NextResponse.json(
         `email: ${user.email}, name: ${user.name}`,
         { status: 200 }
       )
